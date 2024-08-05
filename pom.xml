@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress MavenModelInspection, MavenModelInspection -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>NotVolt</name>
+    <description>NotVolt is an open-Source Discord Bot.</description>
+
+    <groupId>dev.nottekk</groupId>
+    <artifactId>NotVolt</artifactId>
+    <version>2.0.0_ALPHA</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sonar.organization>dxssucuk</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>lavalink</id>
+            <name>LavaLink Release</name>
+            <url>https://maven.lavalink.dev/releases</url>
+        </repository>
+        <!--<repository>
+            <id>lavalink-snapshot</id>
+            <name>LavaLink Devs</name>
+            <url>https://maven.lavalink.dev/snapshots</url>
+        </repository>-->
+        <!--<repository>
+            <id>bintray</id>
+            <name>bintray</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>-->
+        <repository>
+            <id>dv8tion</id>
+            <name>m2-dv8tion</name>
+            <url>https://m2.dv8tion.net/releases</url>
+        </repository>
+        <repository>
+            <id>maven_central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Discord -->
+        <dependency>
+            <groupId>net.dv8tion</groupId>
+            <artifactId>JDA</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+        <!-- Fix for the failed Lookup until they release a version -->
+        <dependency>
+            <groupId>dev.arbjerg</groupId>
+            <artifactId>lavaplayer</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.github.lavalink-devs.lavaplayer</groupId>
+            <artifactId>lavaplayer</artifactId>
+            <version>0ab6311a5f</version>
+        </dependency>-->
+        <dependency>
+            <groupId>dev.lavalink.youtube</groupId>
+            <artifactId>v2</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sedmelluq</groupId>
+            <artifactId>lava-common</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>club.minnced</groupId>
+            <artifactId>discord-webhooks</artifactId>
+            <version>0.8.4</version>
+        </dependency>
+
+        <!-- Sentry and YAML -->
+        <dependency>
+            <groupId>io.sentry</groupId>
+            <artifactId>sentry</artifactId>
+            <version>7.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.Carleslc.Simple-YAML</groupId>
+            <artifactId>Simple-Yaml</artifactId>
+            <version>1.8.4</version>
+        </dependency>
+
+        <!-- API Wrappers -->
+
+        <!-- Socials -->
+        <dependency>
+            <groupId>com.github.instagram4j</groupId>
+            <artifactId>instagram4j</artifactId>
+            <version>2.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.masecla22</groupId>
+            <artifactId>Reddit4J</artifactId>
+            <version>74c789155d</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.twitch4j</groupId>
+            <artifactId>twitch4j</artifactId>
+            <version>1.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.redouane59.twitter</groupId>
+            <artifactId>twittered</artifactId>
+            <version>2.23</version>
+        </dependency>
+        <dependency>
+            <groupId>me.presti</groupId>
+            <artifactId>YoutubeWrapper</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>me.presti</groupId>
+            <artifactId>TikTokWrapper</artifactId>
+            <version>d9194fb3fa</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.jwdeveloper.TikTok-Live-Java</groupId>
+            <artifactId>Client</artifactId>
+            <version>1.8.5-Release</version>
+        </dependency>
+
+        <!-- Music -->
+        <dependency>
+            <groupId>se.michaelthelin.spotify</groupId>
+            <artifactId>spotify-web-api-java</artifactId>
+            <version>8.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ree6</groupId>
+            <artifactId>JLyrics</artifactId>
+            <version>765f7e0b88</version>
+        </dependency>
+        <dependency>
+            <groupId>de.ree6</groupId>
+            <artifactId>Lavalink-Client</artifactId>
+            <version>a8e9e49a57</version>
+        </dependency>
+
+        <!-- Third party APIs -->
+        <dependency>
+            <groupId>com.apptasticsoftware</groupId>
+            <artifactId>rssreader</artifactId>
+            <version>3.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>me.presti</groupId>
+            <artifactId>Nekos4J</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>me.presti</groupId>
+            <artifactId>Amari4Java</artifactId>
+            <version>63f49f783b</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lilittlecat</groupId>
+            <artifactId>chatgpt</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
+        <!-- API Wrappers -->
+
+        <!-- Database -->
+        <dependency>
+            <groupId>de.ree6</groupId>
+            <artifactId>Ree6-SQL</artifactId>
+            <version>da620ec7a5</version>
+        </dependency>
+
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.13</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.6</version>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.34</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Common -->
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.9.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-collections</groupId>
+                    <artifactId>commons-collections</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.16.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.17.1</version>
+        </dependency>
+
+        <!-- Jersey and Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.17.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>3.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>3.1.7</version>
+        </dependency>
+
+
+        <!-- HTTP Clients -->
+        <dependency>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5</artifactId>
+            <version>5.3.1</version>
+        </dependency>
+
+        <!-- Utility -->
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.10.2</version>
+        </dependency>
+        <dependency>
+            <groupId>best.azura</groupId>
+            <artifactId>Azura-Event-Bus</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <!-- Google -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+    </dependencies>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven-snapshots</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>maven-shade-plugin</id>
+            <url>https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-shade-plugin</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.8.0</version>
+                    <inherited>false</inherited>
+                    <executions>
+                        <execution>
+                            <id>aggregate</id>
+                            <goals>
+                                <goal>aggregate-jar</goal>
+                            </goals>
+                            <phase>package</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-maven-plugin</artifactId>
+                <version>1.18.20.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>delombok</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.github.git-commit-id</groupId>
+                <artifactId>git-commit-id-maven-plugin</artifactId>
+                <version>8.0.2</version>
+                <executions>
+                    <execution>
+                        <id>get-the-git-infos</id>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                        <phase>initialize</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                    <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                    <includeOnlyProperties>
+                        <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
+                        <includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
+                    </includeOnlyProperties>
+                    <commitIdGenerationMode>full</commitIdGenerationMode>
+                    <dateFormat>ddMMyyyy</dateFormat>
+                    <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <archive>
+                                <manifest>
+                                    <mainClass>de.presti.ree6.main.Main</mainClass>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                    <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>

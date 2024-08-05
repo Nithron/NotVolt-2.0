@@ -1,0 +1,19 @@
+files:
+  - source: languages
+    ignore:
+      - de.yml
+      - cs.yml
+      - bg.yml
+      - es-ES.yml
+      - fr.yml
+      - hr.yml
+      - id.yml
+      - pl.yml
+      - ru.yml
+      - tr.yml
+      - ja.yml
+      - uk.yml
+      - zh-CN.yml
+      - ro.yml
+      - pt-BR.yml
+    translation: /%original_path%/%locale%.yml
