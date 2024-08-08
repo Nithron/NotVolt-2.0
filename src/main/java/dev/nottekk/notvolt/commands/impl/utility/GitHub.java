@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-@Command(name = "github", description = "command.description.songinfo", category = Category.INFO)
+@Command(name = "github", description = "command.description.github", category = Category.INFO)
 public class GitHub implements ICommand {
 
     @Override
@@ -42,7 +42,7 @@ public class GitHub implements ICommand {
 
     @Override
     public CommandData getCommandData() {
-        return new CommandDataImpl("github", LanguageService.getDefault("command.description.github_slash"))
+        return new CommandDataImpl("github", LanguageService.getDefault("command.description.github"))
                 .addOptions(new OptionData(OptionType.STRING, "user", "Tags of the User to be described"));
     }
 

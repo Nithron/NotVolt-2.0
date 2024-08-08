@@ -1,21 +1,17 @@
 package dev.nottekk.notvolt.commands.impl.utility;
 
 
+import dev.nottekk.notvolt.bot.BotConfig;
 import dev.nottekk.notvolt.commands.Category;
 import dev.nottekk.notvolt.commands.CommandEvent;
 import dev.nottekk.notvolt.commands.interfaces.Command;
 import dev.nottekk.notvolt.commands.interfaces.ICommand;
-import dev.nottekk.notvolt.main.Main;
 import dev.nottekk.notvolt.utils.EAccessLevel;
-import dev.nottekk.notvolt.handlers.ConfigHandler;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
-import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
 import java.awt.*;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 @Command(name = "info", description = "command.description.info", category = Category.INFO)
 public class Info implements ICommand {
@@ -45,10 +41,10 @@ public class Info implements ICommand {
         embed.setTitle("\uD83E\uDD16   Bot Info\n");
         embed.setThumbnail(avatar);
         embed.addField(":id: Bot ID", id, true);
-        embed.addField(":id: Version", ConfigHandler.get("VERSION"), true);
+        embed.addField(":id: Version", BotConfig.getVersion(), true);
         embed.addField("\uD83C\uDF10 Server Count", "In " + serverCount + " servers",true);
         embed.addField(":clock2: Creation date", creationDate, true);
-        embed.setFooter("\n\nCreated by NotTekk", ConfigHandler.get("OWNER_AVATAR"));
+        embed.setFooter("\n\nCreated by NotTekk", BotConfig.getOwnerAvatar());
         return embed;
     }
 

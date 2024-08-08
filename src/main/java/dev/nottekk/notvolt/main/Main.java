@@ -13,7 +13,6 @@ import dev.nottekk.notvolt.events.MessageCommandListener;
 import dev.nottekk.notvolt.events.ReadyStateListener;
 import dev.nottekk.notvolt.events.SlashCommandListener;
 import dev.nottekk.notvolt.events.audio.AudioDisconnectListener;
-import dev.nottekk.notvolt.handlers.ConfigHandler;
 import dev.nottekk.notvolt.language.LanguageService;
 import dev.nottekk.notvolt.logger.LoggerQueue;
 import dev.nottekk.notvolt.utils.apis.ChatGPTAPI;
@@ -109,9 +108,6 @@ public class Main {
      * @param args Start Arguments.
      */
     public static void main(String[] args) {
-
-        ConfigHandler configHandler = new ConfigHandler("src/main/resources/.env");
-        configHandler.load();
 
         // To allow Image creation on CPU.
         System.setProperty("java.awt.headless", "true");

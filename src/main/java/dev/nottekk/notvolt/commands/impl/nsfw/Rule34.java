@@ -28,7 +28,7 @@ import java.nio.charset.StandardCharsets;
  * A command to show NSFW-Image from rule34.xxx.
  */
 
-@Command(name = "nsfw34", description = "command.description.songinfo", category = Category.NSFW)
+@Command(name = "nsfw34", description = "command.description.rule34", category = Category.NSFW)
 public class Rule34 implements ICommand {
 
     /**

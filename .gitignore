@@ -32,3 +32,4 @@ config-old.yml
 config-old.yml
 config.yml
 config.yml
+target/classes/git.properties

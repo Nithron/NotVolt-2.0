@@ -32,6 +32,14 @@ public class BotConfig {
     }
 
     /**
+     * Get the configured Discord Bot version.
+     * @return the Discord Bot version from the config.
+     */
+    public static String getVersion() {
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.version", "2.0.0");
+    }
+
+    /**
      * Get the configured Discord Bot Website.
      * @return the Discord Bot Website from the config.
      */
@@ -85,6 +93,22 @@ public class BotConfig {
      */
     public static String getBotOwner() {
         return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.ownerId", "571414793454485511");
+    }
+
+    /**
+     * Get the configured Discord Bot admins.
+     * @return the Discord Bot admins from the config.
+     */
+    public static String getBotAdmins() {
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.adminIds", "");
+    }
+
+    /**
+     * Get the configured Discord Bot owner.
+     * @return the Discord Bot owner from the config.
+     */
+    public static String getOwnerAvatar() {
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.ownerAvatar", "https://cdn.discordapp.com/avatars/571414793454485511/667c7c6b8254755f243bc994d3f74eb2.webp?size=1024");
     }
 
     /**

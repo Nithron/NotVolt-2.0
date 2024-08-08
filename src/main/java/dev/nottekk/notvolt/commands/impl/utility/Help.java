@@ -1,5 +1,6 @@
 package dev.nottekk.notvolt.commands.impl.utility;
 
+import dev.nottekk.notvolt.bot.BotConfig;
 import dev.nottekk.notvolt.builders.CommandEmbedBuilder;
 import dev.nottekk.notvolt.commands.Category;
 import dev.nottekk.notvolt.commands.CommandEvent;
@@ -7,10 +8,8 @@ import dev.nottekk.notvolt.commands.interfaces.Command;
 import dev.nottekk.notvolt.commands.interfaces.ICommand;
 import dev.nottekk.notvolt.formatters.formats.MessageFormat;
 import dev.nottekk.notvolt.utils.EAccessLevel;
-import dev.nottekk.notvolt.handlers.ConfigHandler;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
-import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -30,7 +29,7 @@ public class Help implements ICommand {
         MessageFormat message8 = new MessageFormat("Fun:", true, false, false);
         MessageFormat message9 = new MessageFormat("ym - Makes YO MAMMA jokes with the mentioned user", false, false, false);
         MessageFormat message10 = new MessageFormat("gif - search and displays gifs based on users input\n\n", false, false, false);
-        EmbedBuilder embed = CommandEmbedBuilder.buildEmbed("\uD83D\uDD37   Help\n", "\n\nCreated by NotTekk", ConfigHandler.get("OWNER_AVATAR"), Color.BLUE, Arrays.asList(message1, message2, message3, message4, message5, message6, message7, message8, message9, message10));
+        EmbedBuilder embed = CommandEmbedBuilder.buildEmbed("\uD83D\uDD37   Help\n", "\n\nCreated by NotTekk", BotConfig.getOwnerAvatar(), Color.BLUE, Arrays.asList(message1, message2, message3, message4, message5, message6, message7, message8, message9, message10));
 
         return embed;
     }

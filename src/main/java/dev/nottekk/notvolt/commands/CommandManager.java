@@ -1,6 +1,8 @@
 package dev.nottekk.notvolt.commands;
 
 import dev.nottekk.notvolt.bot.BotConfig;
+import dev.nottekk.notvolt.commands.impl.fun.Gif;
+import dev.nottekk.notvolt.commands.impl.fun.YoMama;
 import dev.nottekk.notvolt.commands.impl.music.*;
 import dev.nottekk.notvolt.commands.impl.utility.*;
 import dev.nottekk.notvolt.commands.interfaces.Command;
@@ -40,8 +42,8 @@ public class CommandManager {
         //addCommand(new RenameCommand());
 
         //fun
-        //addCommand(new GifCommand());
-        //addCommand(new YoMamaCommand());
+        addCommand(new Gif());
+        addCommand(new YoMama());
         //music
         addCommand(new Clearqueue());
         addCommand(new Disconnect());

@@ -106,6 +106,7 @@ public class BotWorker {
      */
     private static void loadGitProperties() {
         try {
+            /*
             Properties prop = new Properties();
             //load a properties file from a class path, inside static method
             prop.load(Main.class.getClassLoader().getResourceAsStream("git.properties"));
@@ -117,6 +118,8 @@ public class BotWorker {
             gitBranch = prop.getProperty("git.branch");
             gitRepository = prop.getProperty("git.remote.origin.url");
             gitDirty = Boolean.parseBoolean(prop.getProperty("git.dirty"));
+            */
+
         } catch (Exception ex) {
             log.error("Failed to read git information from file!", ex);
         }

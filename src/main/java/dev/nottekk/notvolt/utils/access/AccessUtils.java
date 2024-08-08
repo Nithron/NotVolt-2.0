@@ -1,7 +1,7 @@
 package dev.nottekk.notvolt.utils.access;
 
+import dev.nottekk.notvolt.bot.BotConfig;
 import dev.nottekk.notvolt.commands.interfaces.ICommand;
-import dev.nottekk.notvolt.handlers.ConfigHandler;
 import dev.nottekk.notvolt.utils.EAccessLevel;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.User;
@@ -26,8 +26,8 @@ public class AccessUtils {
     }
 
     public static EAccessLevel getUserAccessLevel(User user) {
-        final List<String> adminsIds = Arrays.stream(ConfigHandler.get("ADMIN_IDS").split(";")).toList();
-        final String ownerId = ConfigHandler.get("OWNER_ID");
+        final List<String> adminsIds = Arrays.stream(BotConfig.getBotAdmins().split(";")).toList();
+        final String ownerId = BotConfig.getBotOwner();
         final String userId = user.getId();
         EAccessLevel res;
 

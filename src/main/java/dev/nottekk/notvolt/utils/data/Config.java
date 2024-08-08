@@ -34,7 +34,7 @@ public class Config {
     /**
      * The config version.
      */
-    private final String version = "3.1.12";
+    private final String version = "2.0.0";
 
     /**
      * Initialize the Configuration.
@@ -69,8 +69,8 @@ public class Config {
             yamlTempFile.options().header("""
                     ################################
                     #                              #
-                    # NotVolt Temporal Info           #
-                    # by Presti                    #
+                    # NotVolt Temporal Info        #
+                    # by NotTekk                   #
                     #                              #
                     ################################
                     """);
@@ -89,8 +89,8 @@ public class Config {
             yamlFile.options().header("""
                     ################################
                     #                              #
-                    # NotVolt Config File             #
-                    # by Presti                    #
+                    # NotVolt Config File          #
+                    # by NotTekk                   #
                     #                              #
                     ################################
                     """);
@@ -119,19 +119,22 @@ public class Config {
                     .parent().path("beta").addDefault("BetaTokenhere").commentSide("Token used when set to beta build.")
                     .parent().path("dev").addDefault("DevTokenhere").commentSide("Token used when set to dev build.")
                     .parent().parent().path("misc").comment("Configuration for the Bot itself.").blankLine()
-                    .path("status").addDefault("ree6.de | %guilds% Servers. (%shard%)").commentSide("The Status of the Bot.")
-                    .parent().path("feedbackChannelId").addDefault(0L).commentSide("The Channel used for Feedback.")
-                    .parent().path("ownerId").addDefault(321580743488831490L).commentSide("The ID of the Bot Owner. Change this to yours!")
+                    .path("status").addDefault("NotVolt | %guilds% Servers. (%shard%)").commentSide("The Status of the Bot.")
+                    .parent().path("version").addDefault("2.0.0").commentSide("The Version of the Bot")
+                    .parent().path("feedbackChannelId").addDefault(0L).commentSide("The Channel used for Feedback")
+                    .parent().path("ownerId").addDefault(571414793454485511L).commentSide("The ID of the Bot Owner")
+                    .parent().path("adminIds").addDefault("").commentSide("The IDs of the Bot Admins")
+                    .parent().path("ownerAvatar").addDefault("https://cdn.discordapp.com/avatars/571414793454485511/667c7c6b8254755f243bc994d3f74eb2.webp?size=1024").commentSide("The Avatar URL of the Bot Owner")
                     .parent().path("predefineInformation").addDefault("""
                             You are NotVolt a Discord bot.
                             """).commentSide("Predefined Information for the AI.")
-                    .parent().path("invite").addDefault("https://invite.ree6.de").commentSide("The Invite Link of the Bot. (Can not be empty)")
-                    .parent().path("support").addDefault("https://support.ree6.de").commentSide("The Support Server Link of the Bot. (Can not be empty)")
-                    .parent().path("github").addDefault("https://github.ree6.de").commentSide("The GitHub Link of the Bot. (Can not be empty)")
-                    .parent().path("website").addDefault("https://ree6.de").commentSide("The Website Link of the Bot. (Can not be empty)")
-                    .parent().path("webinterface").addDefault("https://cp.ree6.de").commentSide("The Webinterface Link of the Bot. (Can not be empty)")
-                    .parent().path("recording").addDefault("https://cp.ree6.de/external/recording").commentSide("The Recording Link of the Bot.")
-                    .parent().path("twitchAuth").addDefault("https://cp.ree6.de/external/twitch").commentSide("The Twitch Authentication Link of the Bot.")
+                    .parent().path("invite").addDefault("https://invite.notvolt.nottekk.dev").commentSide("The Invite Link of the Bot. (Can not be empty)")
+                    .parent().path("support").addDefault("https://support.notvolt.nottekk.dev").commentSide("The Support Server Link of the Bot. (Can not be empty)")
+                    .parent().path("github").addDefault("https://github.nottekk.dev").commentSide("The GitHub Link of the Bot. (Can not be empty)")
+                    .parent().path("website").addDefault("https://nottekk.dev").commentSide("The Website Link of the Bot. (Can not be empty)")
+                    .parent().path("webinterface").addDefault("https://cp.notvolt.nottekk.dev").commentSide("The Webinterface Link of the Bot. (Can not be empty)")
+                    .parent().path("recording").addDefault("https://cp.notvolt.nottekk.dev").commentSide("The Recording Link of the Bot.")
+                    .parent().path("twitchAuth").addDefault("https://cp.notvolt.nottekk.dev").commentSide("The Twitch Authentication Link of the Bot.")
                     .parent().path("advertisement").addDefault("powered by NotVolt.de").commentSide("The Advertisement in Embed Footers and the rest.")
                     .parent().path("name").addDefault("NotVolt").commentSide("The Name of the Bot.")
                     .parent().path("shards").addDefault(1).commentSide("The shard amount of the Bot. Check out https://anidiots.guide/understanding/sharding/#sharding for more information.")
@@ -139,7 +142,7 @@ public class Config {
                     .parent().path("allowRecordingInChat").addDefault(false).commentSide("If you want to allow users to let the Bot send their recording into the chat.")
                     .parent().path("hideModuleNotification").addDefault(false).commentSide("Should the Notification for disabled Modules be hidden?")
                     .parent().path("debug").addDefault(false).commentSide("Should the Bot be in Debug Mode? This will enable more logging.")
-                    .parent().path("defaultPrefix").addDefault("ree!").commentSide("The default Prefix of the Bot.")
+                    .parent().path("defaultPrefix").addDefault("<@1176659298584117268>").commentSide("The default Prefix of the Bot.")
                     .parent().path("textFont").addDefault("Verdana").commentSide("The Font that is being used in Images for the Text.")
                     .parent().path("leveling").comment("Customize the leveling module in NotVolt.").blankLine()
                     .path("resets").comment("""
