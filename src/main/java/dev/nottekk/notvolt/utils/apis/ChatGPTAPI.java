@@ -24,8 +24,8 @@ public class ChatGPTAPI {
     public static ChatGPT chatGPT;
 
     /**
-     * Pre-defined Text used to inform the AI with information related to Ree6s personality and limitations.
-     * This also contains the joke of Ree6 being the Girlfriend of a User on Twitter called @KarmaIsLame.
+     * Pre-defined Text used to inform the AI with information related to NotVolts personality and limitations.
+     * This also contains the joke of NotVolt being the Girlfriend of a User on Twitter called @KarmaIsLame.
      */
     static String preDefinedInformation = "";
 

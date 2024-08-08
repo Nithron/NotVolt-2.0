@@ -7,6 +7,7 @@ import dev.nottekk.notvolt.commands.interfaces.ICommand;
 import dev.nottekk.notvolt.language.LanguageService;
 import dev.nottekk.notvolt.main.Main;
 import dev.nottekk.notvolt.bot.BotConfig;
+import dev.nottekk.notvolt.utils.EAccessLevel;
 import lavalink.client.player.IPlayer;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
@@ -18,7 +19,7 @@ import net.dv8tion.jda.internal.interactions.CommandDataImpl;
 import java.awt.*;
 
 /**
- * Set the Volume of the AudioPlayer of Ree6.
+ * Set the Volume of the AudioPlayer of NotVolt.
  */
 @Command(name = "volume", description = "command.description.volume", category = Category.MUSIC)
 public class Volume implements ICommand {
@@ -105,7 +106,7 @@ public class Volume implements ICommand {
      */
     @Override
     public CommandData getCommandData() {
-        return new CommandDataImpl("volume", LanguageService.getDefault("command.description.volume")).addOptions(new OptionData(OptionType.INTEGER, "amount", "The Volume that the Ree6 Music Player should be!").setRequired(true));
+        return new CommandDataImpl("volume", LanguageService.getDefault("command.description.volume")).addOptions(new OptionData(OptionType.INTEGER, "amount", "The Volume that the NotVolt Music Player should be!").setRequired(true));
     }
 
     /**
@@ -114,5 +115,13 @@ public class Volume implements ICommand {
     @Override
     public String[] getAlias() {
         return new String[] { "vol" };
+    }
+
+    /**
+     * @inheritDoc
+     */
+    @Override
+    public EAccessLevel getCommandLevel() {
+        return EAccessLevel.USER;
     }
 }

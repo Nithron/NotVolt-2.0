@@ -2,7 +2,6 @@ package dev.nottekk.notvolt.language;
 
 import dev.nottekk.notvolt.bot.BotConfig;
 import dev.nottekk.notvolt.commands.CommandEvent;
-import de.presti.ree6.sql.SQLSession;
 import dev.nottekk.notvolt.utils.external.RequestUtility;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.entities.Guild;
@@ -76,7 +75,7 @@ public class LanguageService {
         }
 
         try {
-            RequestUtility.requestJson(RequestUtility.Request.builder().url("https://api.github.com/repos/Ree6-Applications/Ree6/contents/languages").build()).getAsJsonArray().forEach(jsonElement -> {
+            RequestUtility.requestJson(RequestUtility.Request.builder().url("https://api.github.com/repos/NotVolt-Applications/NotVolt/contents/languages").build()).getAsJsonArray().forEach(jsonElement -> {
                 String language = jsonElement.getAsJsonObject().get("name").getAsString().replace(".yml", "");
                 String download = jsonElement.getAsJsonObject().get("download_url").getAsString();
 
@@ -239,12 +238,12 @@ public class LanguageService {
         if (guildId == -1) {
             resource = getDefault(key, parameter);
         } else {
-            resource = getByLocale(SQLSession.getSqlConnector().getSqlWorker().getSetting(guildId, "configuration_language").getStringValue(), key, parameter);
+            resource = getByLocale(BotConfig.getDefaultLanguage(), key, parameter);
         }
 
         if (guildId != -1 && resource.contains("{guild_prefix}")) {
             resource = resource
-                    .replace("{guild_prefix}", SQLSession.getSqlConnector().getSqlWorker().getSetting(guildId, "chatprefix").getStringValue());
+                    .replace("{guild_prefix}", BotConfig.getDefaultPrefix());
         }
 
         return resource;
@@ -263,7 +262,7 @@ public class LanguageService {
 
         if (interaction.getGuild() != null && resource.contains("{guild_prefix}"))
             resource = resource
-                    .replace("{guild_prefix}", SQLSession.getSqlConnector().getSqlWorker().getSetting(interaction.getGuild().getIdLong(), "chatprefix").getStringValue());
+                    .replace("{guild_prefix}", BotConfig.getDefaultPrefix());
 
         return resource;
     }

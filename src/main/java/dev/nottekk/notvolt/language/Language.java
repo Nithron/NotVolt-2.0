@@ -34,7 +34,7 @@ public class Language {
     private final String author;
 
     /**
-     * The corresponding Ree6 Version.
+     * The corresponding NotVolt Version.
      */
     private final String version;
 
@@ -72,7 +72,7 @@ public class Language {
      * @param locale The Locale-Tag of the Language.
      * @param name The Name of the Language.
      * @param author The Author of the Language-File.
-     * @param version The corresponding Ree6 Version.
+     * @param version The corresponding NotVolt Version.
      * @param resources All entries of the Language.
      */
     public Language(@NotNull String locale, @NotNull String name, @NotNull String author, @NotNull String version, @NotNull HashMap<String, String> resources) {
@@ -109,7 +109,7 @@ public class Language {
     }
 
     /**
-     * Called to get the corresponding Ree6 Version.
+     * Called to get the corresponding NotVolt Version.
      * @return The Version.
      */
     public String getVersion() {

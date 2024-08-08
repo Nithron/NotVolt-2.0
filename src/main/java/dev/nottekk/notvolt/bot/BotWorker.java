@@ -278,7 +278,7 @@ public class BotWorker {
      * @return the repository.
      */
     public static String getRepository() {
-        return gitRepository == null ? "https://github.com/Ree6-Applications/Ree6" : gitRepository;
+        return gitRepository == null ? "https://github.com/NotVolt-Applications/NotVolt" : gitRepository;
     }
 
     /**

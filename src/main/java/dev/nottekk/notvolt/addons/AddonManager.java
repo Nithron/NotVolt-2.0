@@ -38,7 +38,7 @@ public class AddonManager {
     public void startAddon(Addon addon) {
         log.info("[AddonManager] Loading {} ({}) by {}", addon.getName(), addon.getVersion(), addon.getAuthor());
 
-        // Check if it's made for the current Ree6 Version if not inform.
+        // Check if it's made for the current NotVolt Version if not inform.
         if (!addon.getApiVersion().equalsIgnoreCase(BotWorker.getBuild())) {
 
             VersionUtil.VersionType difference = VersionUtil.compareVersion(BotWorker.getBuild(), addon.getApiVersion());
@@ -54,9 +54,9 @@ public class AddonManager {
             }
 
             if (isAddonForOlder) {
-                log.warn("[AddonManager] The Addon {}({}) by {} is made for an older version of Ree6. Ree6 is on Version {} and the Addon is made for Version {}.", addon.getName(), addon.getVersion(), addon.getAuthor(), BotWorker.getBuild(), addon.getApiVersion());
+                log.warn("[AddonManager] The Addon {}({}) by {} is made for an older version of NotVolt. NotVolt is on Version {} and the Addon is made for Version {}.", addon.getName(), addon.getVersion(), addon.getAuthor(), BotWorker.getBuild(), addon.getApiVersion());
             } else {
-                log.warn("[AddonManager] The Addon {}({}) by {} is made for a newer version of Ree6. Ree6 is on Version {} and the Addon is made for Version {}.", addon.getName(), addon.getVersion(), addon.getAuthor().toLowerCase(), BotWorker.getBuild(), addon.getApiVersion());
+                log.warn("[AddonManager] The Addon {}({}) by {} is made for a newer version of NotVolt. NotVolt is on Version {} and the Addon is made for Version {}.", addon.getName(), addon.getVersion(), addon.getAuthor().toLowerCase(), BotWorker.getBuild(), addon.getApiVersion());
             }
 
             if (difference == VersionUtil.VersionType.MAYOR) {

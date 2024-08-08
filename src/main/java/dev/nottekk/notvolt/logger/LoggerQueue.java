@@ -3,7 +3,6 @@ package dev.nottekk.notvolt.logger;
 import club.minnced.discord.webhook.send.WebhookEmbed;
 import club.minnced.discord.webhook.send.WebhookEmbedBuilder;
 import club.minnced.discord.webhook.send.WebhookMessageBuilder;
-import dev.nottekk.notvolt.bot.util.WebhookUtil;
 import dev.nottekk.notvolt.language.LanguageService;
 import dev.nottekk.notvolt.logger.events.LogMessageMember;
 import dev.nottekk.notvolt.logger.events.LogMessageRole;
@@ -465,10 +464,6 @@ public class LoggerQueue {
 
             // Create a new Thread for Log-Message to send.
             ThreadUtil.createThread(x -> {
-                // If not canceled, send it.
-                if (!loggerMessage.isCanceled()) {
-                    WebhookUtil.sendWebhook(loggerMessage, loggerMessage.getWebhookMessage(), loggerMessage.getId(), loggerMessage.getAuthCode(), true);
-                }
 
                 // Remove it from the list.
                 logs.remove(loggerMessage);

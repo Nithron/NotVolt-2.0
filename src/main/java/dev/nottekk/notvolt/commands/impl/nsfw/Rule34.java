@@ -4,11 +4,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import dev.nottekk.notvolt.commands.Category;
-import dev.nottekk.notvolt.commands.CommandEvent;
 import dev.nottekk.notvolt.commands.interfaces.Command;
 import dev.nottekk.notvolt.commands.interfaces.ICommand;
+import dev.nottekk.notvolt.commands.CommandEvent;
 import dev.nottekk.notvolt.language.LanguageService;
 import dev.nottekk.notvolt.bot.BotConfig;
+import dev.nottekk.notvolt.utils.EAccessLevel;
 import dev.nottekk.notvolt.utils.external.RequestUtility;
 import dev.nottekk.notvolt.utils.others.RandomUtils;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -26,7 +27,8 @@ import java.nio.charset.StandardCharsets;
 /**
  * A command to show NSFW-Image from rule34.xxx.
  */
-@Command(name = "r34", description = "command.description.rule34", category = Category.NSFW)
+
+@Command(name = "nsfw34", description = "command.description.songinfo", category = Category.NSFW)
 public class Rule34 implements ICommand {
 
     /**
@@ -147,4 +149,10 @@ public class Rule34 implements ICommand {
     public String[] getAlias() {
         return new String[]{"rule34", "34"};
     }
+
+    @Override
+    public EAccessLevel getCommandLevel() {
+        return EAccessLevel.USER;
+    }
+
 }

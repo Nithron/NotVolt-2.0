@@ -3,19 +3,26 @@ package dev.nottekk.notvolt.commands;
 import dev.nottekk.notvolt.language.LanguageService;
 import dev.nottekk.notvolt.main.Main;
 import lombok.Getter;
+import lombok.Setter;
+import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
+import net.dv8tion.jda.api.entities.channel.middleman.GuildMessageChannel;
 import net.dv8tion.jda.api.entities.channel.unions.GuildMessageChannelUnion;
 import net.dv8tion.jda.api.entities.channel.unions.MessageChannelUnion;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
+import net.dv8tion.jda.api.managers.AudioManager;
 import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
 import net.dv8tion.jda.api.utils.messages.MessageCreateData;
 import net.dv8tion.jda.api.utils.messages.MessageEditData;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * Event class used to parse and provide Information about a command execution.
@@ -27,6 +34,12 @@ public class CommandEvent {
      */
     @Getter
     String command;
+
+    /**
+     * The Bot's JDA instance
+     */
+    @Getter
+    JDA jda;
 
     /**
      * The Member associated with the Command execution.
@@ -75,7 +88,8 @@ public class CommandEvent {
      * @param arguments                    the given Arguments.
      * @param slashCommandInteractionEvent the {@link SlashCommandInteractionEvent} Entity.
      */
-    public CommandEvent(String command, @Nonnull Member member, @Nonnull Guild guild, @Nullable Message message, @Nonnull GuildMessageChannelUnion textChannel, @Nullable String[] arguments, @Nullable SlashCommandInteractionEvent slashCommandInteractionEvent) {
+    public CommandEvent(JDA jda, String command, @Nonnull Member member, @Nonnull Guild guild, @Nullable Message message, @Nonnull GuildMessageChannelUnion textChannel, @Nullable String[] arguments, @Nullable SlashCommandInteractionEvent slashCommandInteractionEvent) {
+        this.jda = jda;
         this.command = command;
         this.member = member;
         this.guild = guild;

@@ -28,7 +28,7 @@ public class ArrayUtil {
 
     /**
      * HashMap used to store conversations between the user and the Chat-GPT implementation.
-     * These are being stored guild specific so Ree6 will not continue a conversation in another guild.
+     * These are being stored guild specific so NotVolt will not continue a conversation in another guild.
      * While at the same time we store them in memory to protect users privacy, since there is no actual
      * reason for us to keep these longer then the current application uptime.
      */

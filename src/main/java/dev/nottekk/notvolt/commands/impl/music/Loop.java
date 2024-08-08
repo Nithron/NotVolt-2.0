@@ -6,6 +6,7 @@ import dev.nottekk.notvolt.commands.interfaces.Command;
 import dev.nottekk.notvolt.commands.interfaces.ICommand;
 import dev.nottekk.notvolt.main.Main;
 import dev.nottekk.notvolt.bot.BotConfig;
+import dev.nottekk.notvolt.utils.EAccessLevel;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 
@@ -60,5 +61,13 @@ public class Loop implements ICommand {
     @Override
     public String[] getAlias() {
         return new String[0];
+    }
+
+    /**
+     * @inheritDoc
+     */
+    @Override
+    public EAccessLevel getCommandLevel() {
+        return EAccessLevel.USER;
     }
 }

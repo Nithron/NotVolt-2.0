@@ -9,7 +9,7 @@ import java.io.File;
  * @param name           Add-on Name.
  * @param author         Add-on Author.
  * @param version        Add-on Version.
- * @param apiVersion     Ree6 Version used for the Addon.
+ * @param apiVersion     NotVolt Version used for the Addon.
  * @param classPath      Path to the Main-Class in the JAR.
  * @param file           The actual JAR as File.
  */
@@ -53,9 +53,9 @@ public record Addon(AddonInterface addonInterface, String name, String author, S
     }
 
     /**
-     * Get the Ree6 Version used for the Addon.
+     * Get the NotVolt Version used for the Addon.
      *
-     * @return used Ree6 Version.
+     * @return used NotVolt Version.
      */
     public String getApiVersion() {
         return apiVersion;

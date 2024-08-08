@@ -9,8 +9,8 @@
     <description>NotVolt is an open-Source Discord Bot.</description>
 
     <groupId>dev.nottekk</groupId>
-    <artifactId>NotVolt</artifactId>
-    <version>2.0.0_ALPHA</version>
+    <artifactId>notvolt</artifactId>
+    <version>2.0.0</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -57,7 +57,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>5.0.1</version>
+            <version>5.0.2</version>
         </dependency>
         <!-- Fix for the failed Lookup until they release a version -->
         <dependency>
@@ -73,7 +73,7 @@
         <dependency>
             <groupId>dev.lavalink.youtube</groupId>
             <artifactId>v2</artifactId>
-            <version>1.5.1</version>
+            <version>1.5.2</version>
         </dependency>
         <dependency>
             <groupId>com.sedmelluq</groupId>
@@ -114,7 +114,7 @@
         <dependency>
             <groupId>com.github.twitch4j</groupId>
             <artifactId>twitch4j</artifactId>
-            <version>1.20.0</version>
+            <version>1.21.0</version>
         </dependency>
         <dependency>
             <groupId>io.github.redouane59.twitter</groupId>
@@ -176,20 +176,11 @@
             <version>1.0.3</version>
         </dependency>
 
-        <!-- API Wrappers -->
-
-        <!-- Database -->
-        <dependency>
-            <groupId>de.ree6</groupId>
-            <artifactId>Ree6-SQL</artifactId>
-            <version>da620ec7a5</version>
-        </dependency>
-
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.13</version>
+            <version>2.0.14</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -252,12 +243,19 @@
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
-            <version>3.1.7</version>
+            <version>3.1.8</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
             <artifactId>jersey-client</artifactId>
-            <version>3.1.7</version>
+            <version>3.1.8</version>
+        </dependency>
+
+        <!-- ENV -->
+        <dependency>
+            <groupId>io.github.cdimascio</groupId>
+            <artifactId>dotenv-java</artifactId>
+            <version>3.0.0</version>
         </dependency>
 
 
@@ -335,7 +333,7 @@
             <plugin>
                 <groupId>io.github.git-commit-id</groupId>
                 <artifactId>git-commit-id-maven-plugin</artifactId>
-                <version>8.0.2</version>
+                <version>9.0.1</version>
                 <executions>
                     <execution>
                         <id>get-the-git-infos</id>
@@ -393,7 +391,7 @@
                             </descriptorRefs>
                             <archive>
                                 <manifest>
-                                    <mainClass>de.presti.ree6.main.Main</mainClass>
+                                    <mainClass>dev.nottekk.notvolt.main.Main</mainClass>
                                     <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                     <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                                 </manifest>
