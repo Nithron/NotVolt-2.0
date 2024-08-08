@@ -12,6 +12,7 @@ import dev.nottekk.notvolt.commands.CommandManager;
 import dev.nottekk.notvolt.events.MessageCommandListener;
 import dev.nottekk.notvolt.events.ReadyStateListener;
 import dev.nottekk.notvolt.events.SlashCommandListener;
+import dev.nottekk.notvolt.events.audio.AudioDisconnectListener;
 import dev.nottekk.notvolt.handlers.ConfigHandler;
 import dev.nottekk.notvolt.language.LanguageService;
 import dev.nottekk.notvolt.logger.LoggerQueue;
@@ -494,7 +495,7 @@ public class Main {
      * Called to add all Events.
      */
     private void addEvents(CommandManager commandManager) {
-        BotWorker.addEvent(new ReadyStateListener(commandManager), new MessageCommandListener(commandManager), new SlashCommandListener(commandManager));
+        BotWorker.addEvent(new ReadyStateListener(commandManager), new MessageCommandListener(commandManager), new SlashCommandListener(commandManager), new AudioDisconnectListener());
     }
 
 
