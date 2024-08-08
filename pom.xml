@@ -409,6 +409,11 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
+            <resource>
+                <directory>${project.basedir}/languages</directory>
+                <filtering>false</filtering>
+            </resource>
         </resources>
     </build>
+
 </project>
