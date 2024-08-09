@@ -1,5 +1,3 @@
-[contributing]: https://github.com/Ree6-Applications/Ree6/blob/master/.github/CONTRIBUTING.md
-
 ## Pull Request Etiquette
 
 <!--
