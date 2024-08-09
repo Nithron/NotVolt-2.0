@@ -2,7 +2,7 @@
 Thank you for reading this!
 
 ## Commit
-* Keep your branch updated with the master branch of Ree6.
+* Keep your branch updated with the master branch of NotVolt.
 * Use a proper commit message.
 
 ## Testing
