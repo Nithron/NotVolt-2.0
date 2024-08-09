@@ -1,9 +1,9 @@
 package dev.nottekk.notvolt.commands;
 
 import dev.nottekk.notvolt.bot.BotConfig;
-import dev.nottekk.notvolt.commands.impl.fun.Gif;
-import dev.nottekk.notvolt.commands.impl.fun.YoMama;
+import dev.nottekk.notvolt.commands.impl.fun.*;
 import dev.nottekk.notvolt.commands.impl.music.*;
+import dev.nottekk.notvolt.commands.impl.nsfw.Rule34;
 import dev.nottekk.notvolt.commands.impl.utility.*;
 import dev.nottekk.notvolt.commands.interfaces.Command;
 import dev.nottekk.notvolt.commands.interfaces.ICommand;
@@ -42,7 +42,12 @@ public class CommandManager {
         //addCommand(new RenameCommand());
 
         //fun
+        addCommand(new Anime());
+        addCommand(new CatImage());
+        addCommand(new FunFact());
         addCommand(new Gif());
+        addCommand(new Manga());
+        addCommand(new Twitter());
         addCommand(new YoMama());
         //music
         addCommand(new Clearqueue());
@@ -60,8 +65,12 @@ public class CommandManager {
         addCommand(new SongInfo());
         addCommand(new SongList());
         addCommand(new Volume());
+        //nsfw
+        addCommand(new Rule34());
         //utility
-        addCommand(new Info());
+        addCommand(new Stats());
+        addCommand(new Credits());
+        addCommand(new Server());
         addCommand(new GitHub());
         addCommand(new Help());
         addCommand(new Ping());
