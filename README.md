@@ -1,7 +1,10 @@
 <div align="center">
+
 # NotVolt
-<!--[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=DxsSucuk_Ree6&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=DxsSucuk_Ree6) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DxsSucuk_Ree6&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=DxsSucuk_Ree6) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DxsSucuk_Ree6&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=DxsSucuk_Ree6) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DxsSucuk_Ree6&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=DxsSucuk_Ree6) [![Crowdin](https://badges.crowdin.net/ree6/localized.svg)](https://crowdin.com/project/ree6) [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/ree6/bot)](https://hub.docker.com/repository/docker/ree6/bot/tags)
---></div>
+
+<img src="https://cdn.discordapp.com/avatars/1176659298584117268/873db702dc59e4afa05adef20c186220?size=256"></img>
+
+</div>
 
 # What is NotVolt?
 NotVolt is the first project developed by the NT DevHub group. Our goal is to build a multi-purpose bot to help us manage our Discord Server (Invite can be found bellow) and provide users on their own servers with the same functionalities.
@@ -9,7 +12,7 @@ NotVolt is the first project developed by the NT DevHub group. Our goal is to bu
 # What can NotVolt do?
 Currently NotVolt is on version 2.0, it is the second major release since the creation of the first NotVolt bot (now deprecated). This version is currently undergoing testing! But there are already some commands tested and ready for use, can see bellow:
 <details close>
-<summary>Features ⭐</summary>
+<summary>Features</summary>
 <ul>
    <li>Music Player (YT, Spotify, Vimeo, Bandcamp, Twitch, Soundcloud)</li>
    <li>Music Panel (To manage music)</li>
