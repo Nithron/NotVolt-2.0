@@ -28,3 +28,6 @@ NotVolt is part of the NT DevHub familly, it has a special place on our Official
 [![Discord](https://img.shields.io/discord/805149057004732457?logo=discord&style=for-the-badge)](https://discord.gg/qzB37WS5AT)
 
 
+<a href="https://discord.gg/qzB37WS5AT">
+         <img alt="NT DevHub" src="https://discord.com/api/guilds/1207460031751262240/widget.png?style=banner2">
+</a>
