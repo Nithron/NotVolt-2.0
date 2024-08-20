@@ -1,7 +1,6 @@
-package dev.nottekk.notvolt.events;
+package dev.nottekk.notvolt.listeners;
 
 import dev.nottekk.notvolt.commands.CommandManager;
-import dev.nottekk.notvolt.commands.interfaces.Command;
 import dev.nottekk.notvolt.commands.interfaces.ICommand;
 import dev.nottekk.notvolt.utils.data.CommandUtil;
 import net.dv8tion.jda.api.events.session.ReadyEvent;

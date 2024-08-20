@@ -1,4 +1,4 @@
-package dev.nottekk.notvolt.events;
+package dev.nottekk.notvolt.listeners;
 
 import dev.nottekk.notvolt.commands.CommandManager;
 import net.dv8tion.jda.api.entities.User;
