@@ -73,7 +73,7 @@ public class LanguageService {
                 log.error("Couldn't create the language folder!");
             }
         }
-
+        /*
         try {
             RequestUtility.requestJson(RequestUtility.Request.builder().url("https://api.github.com/repos/NotVolt-Applications/NotVolt/contents/languages").build()).getAsJsonArray().forEach(jsonElement -> {
                 String language = jsonElement.getAsJsonObject().get("name").getAsString().replace(".yml", "");
@@ -127,6 +127,7 @@ public class LanguageService {
         } catch (Exception exception) {
             log.error("An error occurred while downloading the language files!", exception);
         }
+        */
 
         initializeLanguages();
     }

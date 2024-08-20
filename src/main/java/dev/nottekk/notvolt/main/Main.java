@@ -27,8 +27,10 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.channel.concrete.VoiceChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,10 +53,10 @@ import java.util.*;
 @Getter
 @Setter(AccessLevel.PRIVATE)
 public class Main {
+
     /**
      * An Instance of the class itself.
      */
-
     static Main instance;
 
 
@@ -102,6 +104,11 @@ public class Main {
      * String used to identify the last day.
      */
     String lastDay = "";
+
+    /**
+     * Flag to set bot to maintenance mode.
+     */
+    boolean maintenance = false;
 
     /**
      * Main methode called when Application starts.
@@ -227,6 +234,9 @@ public class Main {
                 version = BotVersion.DEVELOPMENT;
             } else if (argList.contains("--beta")) {
                 version = BotVersion.BETA;
+            } else if (argList.contains("--maintenance")) {
+                log.info("[Main] Bot starting in MAINTENANCE mode!");
+                getInstance().maintenance = true;
             }
 
             if (BotConfig.shouldUseLavaLink()) {
@@ -299,6 +309,20 @@ public class Main {
         log.info("You are running on: " + BotWorker.getShardManager().getGuilds().size() + " Guilds.");
         log.info("You are running on: " + BotWorker.getShardManager().getUsers().size() + " Users.");
         log.info("Have fun!");
+    }
+
+    public void setMaintenanceStatus(String username) {
+        getInstance().maintenance = true;
+        BotWorker.getShardManager().getShards().forEach(jda ->
+                BotWorker.setActivity(jda, "Under Maintenance!", Activity.ActivityType.CUSTOM_STATUS, OnlineStatus.DO_NOT_DISTURB));
+        log.info("[Main] MAINTENANCE mode Activated by " + username + "!");
+    }
+
+    public void resetMaintenanceStatus(String username) {
+        getInstance().maintenance = false;
+        BotWorker.getShardManager().getShards().forEach(jda ->
+                BotWorker.setActivity(jda, BotConfig.getStatus(), Activity.ActivityType.CUSTOM_STATUS, OnlineStatus.ONLINE));
+        log.info("[Main] MAINTENANCE mode Deactivated by " + username + "!");
     }
 
     /**
@@ -400,15 +424,25 @@ public class Main {
                     ArrayUtil.messageIDwithMessage.clear();
                     ArrayUtil.messageIDwithUser.clear();
 
-                    BotWorker.getShardManager().getShards().forEach(jda ->
-                            BotWorker.setActivity(jda, BotConfig.getStatus(), Activity.ActivityType.CUSTOM_STATUS));
-
-                    log.info("[Stats] ");
-                    log.info("[Stats] Today's Stats:");
-                    int guildSize = BotWorker.getShardManager().getGuilds().size(), userSize = BotWorker.getShardManager().getGuilds().stream().mapToInt(Guild::getMemberCount).sum();
-                    log.info("[Stats] Guilds: {}", guildSize);
-                    log.info("[Stats] Overall Users: {}", userSize);
-                    log.info("[Stats] ");
+                    if (!isMaintenance()) {
+                        BotWorker.getShardManager().getShards().forEach(jda ->
+                                BotWorker.setActivity(jda, BotConfig.getStatus(), Activity.ActivityType.CUSTOM_STATUS, OnlineStatus.ONLINE));
+                        log.info("[Stats] ");
+                        log.info("[Stats] Today's Stats:");
+                        int guildSize = BotWorker.getShardManager().getGuilds().size(), userSize = BotWorker.getShardManager().getGuilds().stream().mapToInt(Guild::getMemberCount).sum();
+                        log.info("[Stats] Guilds: {}", guildSize);
+                        log.info("[Stats] Overall Users: {}", userSize);
+                        log.info("[Stats] ");
+                    } else {
+                        BotWorker.getShardManager().getShards().forEach(jda ->
+                                BotWorker.setActivity(jda, "Under Maintenance!", Activity.ActivityType.CUSTOM_STATUS, OnlineStatus.DO_NOT_DISTURB));
+                        log.info("[MAINTENANCE] [Stats] [MAINTENANCE]");
+                        log.info("[Stats] Today's Stats:");
+                        int guildSize = BotWorker.getShardManager().getGuilds().size(), userSize = BotWorker.getShardManager().getGuilds().stream().mapToInt(Guild::getMemberCount).sum();
+                        log.info("[Stats] Guilds: {}", guildSize);
+                        log.info("[Stats] Overall Users: {}", userSize);
+                        log.info("[MAINTENANCE] [Stats] [MAINTENANCE]");
+                    }
 
                     LocalDate yesterday = LocalDate.now().minusDays(1);
                     //Statistics statistics = SQLSession.getSqlConnector().getSqlWorker().getStatistics(yesterday.getDayOfMonth(), yesterday.getMonthValue(), yesterday.getYear());

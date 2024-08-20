@@ -24,7 +24,7 @@ public class WhoIs implements ICommand {
     public void onPerform(CommandEvent commandEvent) {
         User mentionedUser;
         if (commandEvent.isSlashCommand()) {
-            mentionedUser = UserUtils.getUserByID(commandEvent, commandEvent.getArguments()[0].replace("<@", "").replace(">", ""));
+            mentionedUser = UserUtils.getUserByID(commandEvent, commandEvent.getArguments()[0]);
         } else {
             mentionedUser = commandEvent.getMessage().getMentions().getUsers().get(0);
         }

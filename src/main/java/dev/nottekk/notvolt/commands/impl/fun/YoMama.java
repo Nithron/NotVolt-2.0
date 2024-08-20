@@ -59,7 +59,7 @@ public class YoMama implements ICommand {
                     embedBuilder.setDescription("No joke found :cry:");
                     commandEvent.reply(embedBuilder.build());
                 } else {
-                    embedBuilder.setColor(Color.MAGENTA);
+                    embedBuilder.setColor(new Color(83, 4, 139));
                     embedBuilder.setDescription(user.getAsMention() + " " + joke);
                     commandEvent.reply(embedBuilder.build());
                 }

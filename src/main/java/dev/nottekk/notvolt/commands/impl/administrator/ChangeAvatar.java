@@ -5,7 +5,7 @@ import dev.nottekk.notvolt.commands.interfaces.ICommand;
 import dev.nottekk.notvolt.utils.EAccessLevel;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 
-public class ChangeAvatarCommand implements ICommand {
+public class ChangeAvatar implements ICommand {
 
     @Override
     public void onPerform(CommandEvent commandEvent) {

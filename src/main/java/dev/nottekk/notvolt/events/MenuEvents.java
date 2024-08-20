@@ -72,7 +72,7 @@ public class MenuEvents extends ListenerAdapter {
                                 .setTitle(LanguageService.getByGuild(event.getGuild(), "label.musicPlayer"))
                                 .setThumbnail(event.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl())
                                 .setColor(Color.GREEN)
-                                .setDescription(LanguageService.getByGuild(event.getGuild(), "message.music.pause"))
+                                .setDescription(LanguageService.getByGuild(event.getGuild(), "message.music.alreadyplaying"))
                                 .setFooter(event.getGuild().getName() + " - " + BotConfig.getAdvertisement(), event.getGuild().getIconUrl());
                         Main.getInstance().getCommandManager().sendMessage(em, event.getChannel(), event.getHook());
                     }
@@ -87,16 +87,28 @@ public class MenuEvents extends ListenerAdapter {
                 GuildMusicManager guildMusicManager = Main.getInstance().getMusicWorker().getGuildAudioPlayer(event.getGuild());
 
                 if (guildMusicManager != null) {
-                    guildMusicManager.getPlayer().setPaused(true);
-                    EmbedBuilder em = new EmbedBuilder()
-                            .setAuthor(event.getGuild().getJDA().getSelfUser().getName(), BotConfig.getWebsite(),
-                                    event.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl())
-                            .setTitle(LanguageService.getByGuild(event.getGuild(), "label.musicPlayer"))
-                            .setThumbnail(event.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl())
-                            .setColor(Color.GREEN)
-                            .setDescription(LanguageService.getByGuild(event.getGuild(), "message.music.pause"))
-                            .setFooter(event.getGuild().getName() + " - " + BotConfig.getAdvertisement(), event.getGuild().getIconUrl());
-                    Main.getInstance().getCommandManager().sendMessage(em, event.getChannel(), event.getHook());
+                    if (!guildMusicManager.getPlayer().isPaused()) {
+                        guildMusicManager.getPlayer().setPaused(true);
+                        EmbedBuilder em = new EmbedBuilder()
+                                .setAuthor(event.getGuild().getJDA().getSelfUser().getName(), BotConfig.getWebsite(),
+                                        event.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl())
+                                .setTitle(LanguageService.getByGuild(event.getGuild(), "label.musicPlayer"))
+                                .setThumbnail(event.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl())
+                                .setColor(Color.GREEN)
+                                .setDescription(LanguageService.getByGuild(event.getGuild(), "message.music.pause"))
+                                .setFooter(event.getGuild().getName() + " - " + BotConfig.getAdvertisement(), event.getGuild().getIconUrl());
+                        Main.getInstance().getCommandManager().sendMessage(em, event.getChannel(), event.getHook());
+                    } else {
+                        EmbedBuilder em = new EmbedBuilder()
+                                .setAuthor(event.getGuild().getJDA().getSelfUser().getName(), BotConfig.getWebsite(),
+                                        event.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl())
+                                .setTitle(LanguageService.getByGuild(event.getGuild(), "label.musicPlayer"))
+                                .setThumbnail(event.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl())
+                                .setColor(Color.GREEN)
+                                .setDescription(LanguageService.getByGuild(event.getGuild(), "message.music.alreadypaused"))
+                                .setFooter(event.getGuild().getName() + " - " + BotConfig.getAdvertisement(), event.getGuild().getIconUrl());
+                        Main.getInstance().getCommandManager().sendMessage(em, event.getChannel(), event.getHook());
+                    }
                 } else {
                     Main.getInstance().getCommandManager().sendMessage(LanguageService.getByGuild(event.getGuild(), "message.music.notConnected"),
                             event.getChannel(), event.getHook());

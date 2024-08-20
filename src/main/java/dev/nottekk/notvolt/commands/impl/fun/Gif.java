@@ -46,7 +46,7 @@ public class Gif implements ICommand {
             //Random GIF returned by the API
             int gifIndex = rand.nextInt(array.length());
             url = (String) array.getJSONObject(gifIndex).get("url");
-            embedBuilder.setColor(Color.MAGENTA);
+            embedBuilder.setColor(new Color(83, 4, 139));
             embedBuilder.setImage(url);
             commandEvent.reply(embedBuilder.build());
         } catch (IOException | NullPointerException e) {

@@ -79,7 +79,7 @@ public class GitHub implements ICommand {
         String website = json.optString("blog", "None");
 
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setColor(Color.blue);
+        builder.setColor(new Color(83, 4, 139));
         builder.setAuthor("Information about " + pseudonym + " (" + username + ")", "https://github.com/" + username, "http://i.imgur.com/pH59eAC.png");
         builder.setThumbnail(json.getString("avatar_url"));
 

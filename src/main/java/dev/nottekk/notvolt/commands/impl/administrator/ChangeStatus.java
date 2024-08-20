@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 
-public class ChangeStatusCommand implements ICommand {
+public class ChangeStatus implements ICommand {
 
     private void changeActivity(JDA jda, String activityType, String activity, String URL) {
         switch (activityType) {

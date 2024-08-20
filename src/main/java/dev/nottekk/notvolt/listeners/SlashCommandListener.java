@@ -15,7 +15,6 @@ public class SlashCommandListener extends ListenerAdapter {
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
-        event.deferReply().queue();
         User user = event.getUser();
 
         if (user.isBot()) {

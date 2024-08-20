@@ -64,12 +64,12 @@ public class MusicPanel implements ICommand {
         if (event.getState() == MusicPlayerStateChangeEvent.State.PLAYING) {
 
             embedBuilder1 = embedBuilder1
-                    .setImage(audioTrackInfo1 != null && (audioTrackInfo1.artworkUrl != null && !audioTrackInfo1.artworkUrl.isBlank()) ? audioTrackInfo1.artworkUrl : "https://images.unsplash.com/photo-1546977463-943d58b78c19")
+                    .setImage(audioTrackInfo1 != null && (audioTrackInfo1.artworkUrl != null && !audioTrackInfo1.artworkUrl.isBlank()) ? audioTrackInfo1.artworkUrl : "https://cdna.artstation.com/p/assets/images/images/060/603/250/original/lemo-arts-imhacked12-banner-animado-3.gif?1678917688")
                     .setTitle("**" + (audioTrackInfo1 != null ? LanguageService.getByGuild(event.getGuild(), "message.music.songInfoSlim", audioTrackInfo1.title, audioTrackInfo1.author)
                             : LanguageService.getByGuild(event.getGuild(), "message.music.notPlaying")) + "**");
         } else if (event.getState() != MusicPlayerStateChangeEvent.State.QUEUE_ADD) {
             embedBuilder1 = embedBuilder1
-                    .setImage("https://images.unsplash.com/photo-1546977463-943d58b78c19")
+                    .setImage("https://cdna.artstation.com/p/assets/images/images/060/603/250/original/lemo-arts-imhacked12-banner-animado-3.gif?1678917688")
                     .setTitle("**" + LanguageService.getByGuild(event.getGuild(), "message.music.notPlaying") + "**");
         }
 
@@ -96,8 +96,8 @@ public class MusicPanel implements ICommand {
                         guildMusicManager.getPlayer().getPlayingTrack().getInfo() : null;
 
         EmbedBuilder embedBuilder = new EmbedBuilder()
-                .setColor(Color.MAGENTA)
-                .setImage(audioTrackInfo != null && (audioTrackInfo.artworkUrl != null && !audioTrackInfo.artworkUrl.isBlank()) ? audioTrackInfo.artworkUrl : "https://images.unsplash.com/photo-1546977463-943d58b78c19")
+                .setColor(new Color(83, 4, 139))
+                .setImage(audioTrackInfo != null && (audioTrackInfo.artworkUrl != null && !audioTrackInfo.artworkUrl.isBlank()) ? audioTrackInfo.artworkUrl : "https://cdna.artstation.com/p/assets/images/images/060/603/250/original/lemo-arts-imhacked12-banner-animado-3.gif?1678917688")
                 .setTitle("**" + (audioTrackInfo != null ? commandEvent.getResource("message.music.songInfoSlim", audioTrackInfo.title, audioTrackInfo.author)
                         : commandEvent.getResource("message.music.notPlaying")) + "**")
                 .setFooter(commandEvent.getGuild().getName() + " - " + BotConfig.getAdvertisement(), commandEvent.getGuild().getIconUrl());

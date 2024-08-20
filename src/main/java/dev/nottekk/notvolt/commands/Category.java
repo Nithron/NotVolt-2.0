@@ -24,15 +24,15 @@ public enum Category {
     /**
      * Category used for level Commands.
      */
-    LEVEL("re_icon_level", 1019221845972635809L, false, "category.level"),
+    //LEVEL("re_icon_level", 1019221845972635809L, false, "category.level"),
     /**
      * Category used for community Commands.
      */
-    COMMUNITY("re_icon_community", 1019221884686057552L, false, "category.community"),
+    //COMMUNITY("re_icon_community", 1019221884686057552L, false, "category.community"),
     /**
      * Category used for economy Commands.
      */
-    ECONOMY("re_icon_economy", 0L, false, "category.economy"),
+    //ECONOMY("re_icon_economy", 0L, false, "category.economy"),
     /**
      * Category used for NSFW Commands.
      */

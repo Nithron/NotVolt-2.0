@@ -14,6 +14,7 @@ import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 import net.dv8tion.jda.api.utils.messages.MessageEditBuilder;
 
+import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -51,7 +52,7 @@ public class Stats implements ICommand {
                 commandEvent.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl());
         em.setTitle(commandEvent.getResource("label.statistics"));
         em.setThumbnail(commandEvent.getGuild().getJDA().getSelfUser().getEffectiveAvatarUrl());
-        em.setColor(BotWorker.randomEmbedColor());
+        em.setColor(new Color(83, 4, 139));
 
         long memberCount = firstBoot ? BotWorker.getShardManager().getUsers().size() : BotWorker.getShardManager().getUserCache().size();
         firstBoot = true;

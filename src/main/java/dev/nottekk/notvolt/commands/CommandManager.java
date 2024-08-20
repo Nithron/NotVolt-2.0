@@ -1,12 +1,14 @@
 package dev.nottekk.notvolt.commands;
 
 import dev.nottekk.notvolt.bot.BotConfig;
+import dev.nottekk.notvolt.commands.impl.administrator.Maintenance;
 import dev.nottekk.notvolt.commands.impl.fun.*;
 import dev.nottekk.notvolt.commands.impl.music.*;
 import dev.nottekk.notvolt.commands.impl.nsfw.Rule34;
 import dev.nottekk.notvolt.commands.impl.utility.*;
 import dev.nottekk.notvolt.commands.interfaces.Command;
 import dev.nottekk.notvolt.commands.interfaces.ICommand;
+import dev.nottekk.notvolt.main.Main;
 import dev.nottekk.notvolt.utils.access.AccessUtils;
 import dev.nottekk.notvolt.utils.data.ArrayUtil;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -22,6 +24,7 @@ import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
 import net.dv8tion.jda.api.utils.messages.MessageCreateData;
 import org.jetbrains.annotations.Nullable;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,10 +40,7 @@ public class CommandManager {
     public CommandManager() {
 
         //adm
-        //addCommand(new ChangeAvatarCommand());
-        //addCommand(new ChangeStatusCommand());
-        //addCommand(new RenameCommand());
-
+        addCommand(new Maintenance());
         //fun
         addCommand(new Anime());
         addCommand(new CatImage());
@@ -68,12 +68,13 @@ public class CommandManager {
         //nsfw
         addCommand(new Rule34());
         //utility
-        addCommand(new Stats());
         addCommand(new Credits());
-        addCommand(new Server());
         addCommand(new GitHub());
         addCommand(new Help());
         addCommand(new Ping());
+        addCommand(new Server());
+        addCommand(new Stats());
+        addCommand(new Suggestion());
         addCommand(new WhoIs());
 
     }
@@ -119,6 +120,17 @@ public class CommandManager {
 
         ICommand command = this.getCommand(arguments[1].toLowerCase());
 
+        if (Main.getInstance().isMaintenance()) {
+            if (!user.getId().equals(BotConfig.getBotOwner())) {
+                EmbedBuilder embedBuilder = new EmbedBuilder();
+                embedBuilder.setTitle("NotVolt under Maintenance!");
+                //TO-DO: add link to maintenance page.
+                embedBuilder.setColor(Color.RED);
+                event.getMessage().replyEmbeds(embedBuilder.build()).queue();
+                return;
+            }
+        }
+
         if (command != null) {
             if (AccessUtils.userHasAccess(user, command)) {
                 event.getChannel().sendTyping().queue();
@@ -142,8 +154,20 @@ public class CommandManager {
         String name = event.getName();
         Optional<ICommand> commandOptional = Optional.ofNullable(this.getCommand(name));
 
+        if (Main.getInstance().isMaintenance()) {
+            if (!user.getId().equals(BotConfig.getBotOwner())) {
+                EmbedBuilder embedBuilder = new EmbedBuilder();
+                embedBuilder.setTitle("NotVolt under Maintenance!");
+                //TO-DO: add link to maintenance page.
+                embedBuilder.setColor(Color.RED);
+                event.replyEmbeds(embedBuilder.build()).queue();
+                return;
+            }
+        }
+
         commandOptional.ifPresent(command -> {
             if (AccessUtils.userHasAccess(user, command)) {
+                event.deferReply().queue();
                 List<OptionMapping> options = event.getOptions();
                 String[] arguments = options.stream()
                         .map(OptionMapping::getAsString)

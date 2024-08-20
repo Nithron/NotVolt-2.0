@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -167,12 +168,14 @@ public class BotWorker {
      * @param message      the Message of the Activity.
      * @param activityType the Activity type.
      */
-    public static void setActivity(String message, Activity.ActivityType activityType) {
+    public static void setActivity(String message, Activity.ActivityType activityType, OnlineStatus onlineStatus) {
         // If the Bot Instance is null, if not set.
-        if (shardManager != null)
+        if (shardManager != null) {
             shardManager.setActivity(Activity.of(activityType,
                     message.replace("%shards%", String.valueOf(shardManager.getShardsTotal()))
                             .replace("%guilds%", String.valueOf(shardManager.getGuilds().size()))));
+            shardManager.setStatus(onlineStatus);
+        }
     }
 
     /**
@@ -182,14 +185,16 @@ public class BotWorker {
      * @param message      the Message of the Activity.
      * @param activityType the Activity type.
      */
-    public static void setActivity(JDA jda, String message, Activity.ActivityType activityType) {
+    public static void setActivity(JDA jda, String message, Activity.ActivityType activityType, OnlineStatus onlineStatus) {
         // If the Bot Instance is null, if not set.
-        if (jda != null)
+        if (jda != null) {
             jda.getPresence().setActivity(Activity.of(activityType,
                     message.replace("%shards%", String.valueOf(shardManager.getShardsTotal()))
                             .replace("%shard%", String.valueOf(jda.getShardInfo().getShardId()))
                             .replace("%guilds%", String.valueOf(shardManager.getGuilds().size()))
                             .replace("%shard_guilds%", String.valueOf(jda.getGuilds().size()))));
+            jda.getPresence().setStatus(onlineStatus);
+        }
     }
 
     /**
