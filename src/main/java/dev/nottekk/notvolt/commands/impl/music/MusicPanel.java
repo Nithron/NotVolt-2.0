@@ -104,12 +104,12 @@ public class MusicPanel implements ICommand {
 
         messageCreateBuilder.setEmbeds(embedBuilder.build());
 
-        messageCreateBuilder.addActionRow(Button.of(ButtonStyle.SECONDARY, "re_music_play", FormatUtil.PLAY_EMOJI),
-                        Button.of(ButtonStyle.SECONDARY, "re_music_pause", FormatUtil.PAUSE_EMOJI),
-                        Button.of(ButtonStyle.SECONDARY, "re_music_skip", FormatUtil.PLAY_EMOJI + FormatUtil.PLAY_EMOJI),
-                        Button.of(ButtonStyle.SECONDARY, "re_music_loop", FormatUtil.LOOP_EMOJI),
-                        Button.of(ButtonStyle.SECONDARY, "re_music_shuffle", FormatUtil.SHUFFLE_EMOJI))
-                .addActionRow(Button.success("re_music_add", commandEvent.getResource("label.queueAdd")));
+        messageCreateBuilder.addActionRow(Button.of(ButtonStyle.SECONDARY, "nv_music_play", FormatUtil.PLAY_EMOJI),
+                        Button.of(ButtonStyle.SECONDARY, "nv_music_pause", FormatUtil.PAUSE_EMOJI),
+                        Button.of(ButtonStyle.SECONDARY, "nv_music_skip", FormatUtil.PLAY_EMOJI + FormatUtil.PLAY_EMOJI),
+                        Button.of(ButtonStyle.SECONDARY, "nv_music_loop", FormatUtil.LOOP_EMOJI),
+                        Button.of(ButtonStyle.SECONDARY, "nv_music_shuffle", FormatUtil.SHUFFLE_EMOJI))
+                .addActionRow(Button.success("nv_music_add", commandEvent.getResource("label.queueAdd")));
 
         Message message;
 

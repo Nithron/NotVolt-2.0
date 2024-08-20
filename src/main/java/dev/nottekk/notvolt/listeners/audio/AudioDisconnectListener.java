@@ -1,4 +1,4 @@
-package dev.nottekk.notvolt.events.audio;
+package dev.nottekk.notvolt.listeners.audio;
 
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceUpdateEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

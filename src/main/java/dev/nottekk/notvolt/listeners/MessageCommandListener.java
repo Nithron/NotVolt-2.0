@@ -1,4 +1,4 @@
-package dev.nottekk.notvolt.events;
+package dev.nottekk.notvolt.listeners;
 
 import dev.nottekk.notvolt.bot.BotConfig;
 import dev.nottekk.notvolt.commands.CommandManager;

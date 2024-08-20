@@ -9,10 +9,11 @@ import dev.nottekk.notvolt.bot.BotWorker;
 import dev.nottekk.notvolt.bot.version.BotState;
 import dev.nottekk.notvolt.bot.version.BotVersion;
 import dev.nottekk.notvolt.commands.CommandManager;
-import dev.nottekk.notvolt.events.MessageCommandListener;
-import dev.nottekk.notvolt.events.ReadyStateListener;
-import dev.nottekk.notvolt.events.SlashCommandListener;
-import dev.nottekk.notvolt.events.audio.AudioDisconnectListener;
+import dev.nottekk.notvolt.events.MenuEvents;
+import dev.nottekk.notvolt.listeners.MessageCommandListener;
+import dev.nottekk.notvolt.listeners.ReadyStateListener;
+import dev.nottekk.notvolt.listeners.SlashCommandListener;
+import dev.nottekk.notvolt.listeners.audio.AudioDisconnectListener;
 import dev.nottekk.notvolt.language.LanguageService;
 import dev.nottekk.notvolt.logger.LoggerQueue;
 import dev.nottekk.notvolt.utils.apis.ChatGPTAPI;
@@ -491,7 +492,7 @@ public class Main {
      * Called to add all Events.
      */
     private void addEvents(CommandManager commandManager) {
-        BotWorker.addEvent(new ReadyStateListener(commandManager), new MessageCommandListener(commandManager), new SlashCommandListener(commandManager), new AudioDisconnectListener());
+        BotWorker.addEvent(new ReadyStateListener(commandManager), new MessageCommandListener(commandManager), new SlashCommandListener(commandManager), new AudioDisconnectListener(), new MenuEvents());
     }
 
 
