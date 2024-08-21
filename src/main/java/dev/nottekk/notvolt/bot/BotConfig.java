@@ -52,7 +52,7 @@ public class BotConfig {
      * @return the Github repository from the config.
      */
     public static String getGithub() {
-        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.github", "https://github.nottekk.dev");
+        return Main.getInstance().getConfig().getConfiguration().getString("bot.misc.github", "https://github.com/NT-DevHub/NotVolt-2.0");
     }
 
     /**

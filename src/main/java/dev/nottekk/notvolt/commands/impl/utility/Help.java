@@ -103,19 +103,17 @@ public class Help implements ICommand {
             }
         }
 
-        /*
+
         messageCreateBuilder
                 .addActionRow(
                         net.dv8tion.jda.api.interactions.components.buttons.Button.of(ButtonStyle.LINK, BotConfig.getInvite(), commandEvent.getResource("label.invite"),
-                                Emoji.fromCustom("re_icon_invite", 1019234807844175945L, false)),
+                                Emoji.fromCustom("nv_icon_invite", 1019234807844175945L, false)),
                         net.dv8tion.jda.api.interactions.components.buttons.Button.of(ButtonStyle.LINK, BotConfig.getSupport(), commandEvent.getResource("label.support"),
-                                Emoji.fromCustom("re_icon_help", 1019234684745564170L, false)),
+                                Emoji.fromCustom("nv_icon_help", 1019234684745564170L, false)),
                         net.dv8tion.jda.api.interactions.components.buttons.Button.of(ButtonStyle.LINK, BotConfig.getGithub(), commandEvent.getResource("label.github"),
-                                Emoji.fromCustom("re_icon_github", 492259724079792138L, false)),
-                        Button.of(ButtonStyle.SECONDARY, "re_feedback", commandEvent.getResource("label.feedback"),
-                                Emoji.fromCustom("kiss", 1012765976951009361L, true))
+                                Emoji.fromCustom("nv_icon_github", 492259724079792138L, false))
                 );
-    */
+
         commandEvent.reply(messageCreateBuilder.setEmbeds(em.build()).build());
     }
 
